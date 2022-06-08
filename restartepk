@@ -8,7 +8,7 @@ cd /root
 a=`cat jdsepk`
 for ((i=1;i<=$a;i++)) do 
 
-sudo service epk$i restart
+sudo service epik$i restart
 sleep 15m
 
 echo "第'$i'完成"
