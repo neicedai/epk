@@ -1,0 +1,11 @@
+echo "建立虚拟内存"
+dd if=/dev/zero of=/swapfile bs=1M count=40960&&
+mkswap /swapfile &&
+chmod 0600 /swapfile &&
+swapon /swapfile &&
+echo "/swapfile   swap   swap    defaults 0 0" >>/etc/fstab
+echo "虚拟内存建立完毕"
+sudo apt install mesa-opencl-icd ocl-icd-opencl-dev gcc git bzr jq pkg-config curl clang build-essential hwloc libhwloc-dev wget -y && sudo apt upgrade -y
+sudo ln -s /usr/lib/x86_64-linux-gnu/libhwloc.so /usr/lib/x86_64-linux-gnu/libhwloc.so.5
+scp -r root@216.250.255.245:/usr/local/bin/* /usr/local/bin/  
+scp -r root@216.250.255.245:/etc/systemd/system/epik*.service /etc/systemd/system/
