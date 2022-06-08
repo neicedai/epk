@@ -1,0 +1,8 @@
+chmod 777 restartepk
+rm jdsepk
+echo $1 >> jdsepk
+cp jds /root
+cp restartepk /usr/local/bin
+cp resepk.service /etc/systemd/system/
+systemctl enable resepk
+service resepk restart
