@@ -1,0 +1,18 @@
+#!/bin/bash
+
+
+while true
+
+do
+cd /root
+a=`cat jdsepk`
+for ((i=1;i<=$a;i++)) do 
+
+sudo service epk$i restart
+sleep 15m
+
+echo "第'$i'完成"
+done
+
+
+done
