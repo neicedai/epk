@@ -1,6 +1,6 @@
 chmod 777 restartepk
 rm jdsepk
-echo $1 >> jdsepk
+echo $1 >> /root/jdsepk
 cp jds /root
 cp restartepk /usr/local/bin
 cp resepk.service /etc/systemd/system/
