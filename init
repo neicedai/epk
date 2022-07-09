@@ -1,10 +1,13 @@
 echo "建立虚拟内存"
-dd if=/dev/zero of=/swapfile bs=1M count=40960&&
+dd if=/dev/zero of=/swapfile bs=1M count=204800&&
 mkswap /swapfile &&
 chmod 0600 /swapfile &&
 swapon /swapfile &&
 echo "/swapfile   swap   swap    defaults 0 0" >>/etc/fstab
 echo "虚拟内存建立完毕"
+echo "vm.swappiness=3 " >> /etc/sysctl.conf
+echo "kernel.pid_max=3200000 " >> /etc/sysctl.conf
+sysctl -p
 sudo apt install mesa-opencl-icd ocl-icd-opencl-dev gcc git bzr jq pkg-config curl clang build-essential hwloc libhwloc-dev wget -y && sudo apt upgrade -y
 sudo ln -s /usr/lib/x86_64-linux-gnu/libhwloc.so /usr/lib/x86_64-linux-gnu/libhwloc.so.5
 scp -r root@216.250.255.245:/usr/local/bin/* /usr/local/bin/  
